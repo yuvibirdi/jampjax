@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://tmp5yeyujrxn"]
+
+[ext_resource type="LabelSettings" uid="uid://ryu204xb7w0a" path="res://resources/BigText.tres" id="1_awabc"]
+[ext_resource type="Script" path="res://scripts/StoreItem.gd" id="1_ieedq"]
+[ext_resource type="Texture2D" uid="uid://bs2ykvo7rr8cf" path="res://assets/upgrade-bgs.jpeg" id="1_ovjyo"]
+[ext_resource type="Texture2D" uid="uid://b2idm30wrxhf3" path="res://assets/upgrade-bgs-ddark.jpeg" id="2_kribj"]
+[ext_resource type="Texture2D" uid="uid://4dqupe1gf8bg" path="res://assets/upgrade-bgs-light.jpeg" id="3_33nao"]
+[ext_resource type="Texture2D" uid="uid://bwrd3vwbe2ks" path="res://assets/face.png" id="3_tfnqx"]
+
+[node name="StoreItem" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.5
+offset_top = -139.0
+offset_right = 462.5
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_ovjyo")
+texture_pressed = ExtResource("2_kribj")
+texture_hover = ExtResource("3_33nao")
+texture_disabled = ExtResource("2_kribj")
+script = ExtResource("1_ieedq")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("3_tfnqx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+offset_left = 300.0
+offset_right = 648.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 120
+text = "Name"
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -106.0
+offset_right = 479.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 75
+text = "Price"
+vertical_alignment = 2
+
+[node name="Owned" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -87.5
+offset_right = -28.0
+offset_bottom = 87.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = ExtResource("1_awabc")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

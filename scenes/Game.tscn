@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuk4bouoe1cmx"]
+
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_fu6bj"]
+[ext_resource type="Texture2D" uid="uid://b8f1s3o71axsw" path="res://assets/background.jpeg" id="2_cu56j"]
+[ext_resource type="LabelSettings" uid="uid://ryu204xb7w0a" path="res://resources/BigText.tres" id="2_y5m2x"]
+[ext_resource type="Texture2D" uid="uid://bwrd3vwbe2ks" path="res://assets/face.png" id="3_e07m4"]
+[ext_resource type="Script" path="res://scripts/Jack.gd" id="4_16mlq"]
+
+[sub_resource type="Animation" id="Animation_a35i6"]
+resource_name = "pulse"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-250.0, -275, -250.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [250.0, 275, 250.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02lp1"]
+_data = {
+"pulse": SubResource("Animation_a35i6")
+}
+
+[node name="Game" type="CanvasLayer"]
+script = ExtResource("1_fu6bj")
+
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Container" type="TextureRect" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_cu56j")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="HSplitContainer/Container"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 175.0
+grow_horizontal = 2
+text = "0 Jacks"
+label_settings = ExtResource("2_y5m2x")
+horizontal_alignment = 1
+
+[node name="Jack" type="TextureButton" parent="HSplitContainer/Container"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_e07m4")
+stretch_mode = 5
+script = ExtResource("4_16mlq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HSplitContainer/Container/Jack"]
+libraries = {
+"": SubResource("AnimationLibrary_02lp1")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Upgrades"
+label_settings = ExtResource("2_y5m2x")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Store" type="VSplitContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+split_offset = 200
+
+[node name="Label" type="Label" parent="HSplitContainer/Store"]
+layout_mode = 2
+text = "Store"
+label_settings = ExtResource("2_y5m2x")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Store"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Store/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_down" from="HSplitContainer/Container/Jack" to="." method="mouse_down"]
+[connection signal="pressed" from="HSplitContainer/Container/Jack" to="." method="click"]
