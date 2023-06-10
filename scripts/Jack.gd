@@ -6,7 +6,3 @@ var player: AnimationPlayer = get_node("AnimationPlayer")
 
 func pulse():
 	player.play("pulse")
-
-func down():
-	# player.play("shrink")
-	pass
