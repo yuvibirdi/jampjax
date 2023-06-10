@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuk4bouoe1cmx"]
+[gd_scene load_steps=10 format=3 uid="uid://cuk4bouoe1cmx"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_fu6bj"]
 [ext_resource type="Texture2D" uid="uid://b8f1s3o71axsw" path="res://assets/background.jpeg" id="2_cu56j"]
 [ext_resource type="LabelSettings" uid="uid://ryu204xb7w0a" path="res://resources/BigText.tres" id="2_y5m2x"]
 [ext_resource type="Texture2D" uid="uid://bwrd3vwbe2ks" path="res://assets/face.png" id="3_e07m4"]
 [ext_resource type="Script" path="res://scripts/Jack.gd" id="4_16mlq"]
+[ext_resource type="Texture2D" uid="uid://bewrpim1wi8ti" path="res://assets/store.jpeg" id="6_sbsr4"]
 
 [sub_resource type="Animation" id="Animation_a35i6"]
 resource_name = "pulse"
@@ -39,6 +40,9 @@ tracks/1/keys = {
 _data = {
 "pulse": SubResource("Animation_a35i6")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w8xu"]
+bg_color = Color(0.921569, 0.627451, 0.0117647, 1)
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_fu6bj")
@@ -88,6 +92,18 @@ libraries = {
 "": SubResource("AnimationLibrary_02lp1")
 }
 
+[node name="Energy" type="ProgressBar" parent="HSplitContainer/Container"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_6w8xu")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
 visible = false
 layout_mode = 2
@@ -105,27 +121,44 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="Store" type="VSplitContainer" parent="HSplitContainer"]
+[node name="Store" type="Control" parent="HSplitContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StoreBackground" type="TextureRect" parent="HSplitContainer/Store"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_sbsr4")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="Store" type="VSplitContainer" parent="HSplitContainer/Store"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 split_offset = 200
 
-[node name="Label" type="Label" parent="HSplitContainer/Store"]
+[node name="Label" type="Label" parent="HSplitContainer/Store/Store"]
 layout_mode = 2
 text = "Store"
 label_settings = ExtResource("2_y5m2x")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Store"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Store/Store"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Store/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Store/Store/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[connection signal="button_down" from="HSplitContainer/Container/Jack" to="." method="mouse_down"]
-[connection signal="pressed" from="HSplitContainer/Container/Jack" to="." method="click"]
