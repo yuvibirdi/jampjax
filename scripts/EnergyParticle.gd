@@ -8,7 +8,6 @@ var _rng = RandomNumberGenerator.new()
 
 func _on_value_changed(value: float) -> void:
 	if value > _last_value:
-		print("Added")
 		var instance = _energy_increase.instantiate()
 		instance.position = Vector2(_rng.randi_range(0, 1920/2), 0)
 		add_child(instance)
