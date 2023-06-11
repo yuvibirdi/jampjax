@@ -48,7 +48,7 @@ def check_validity(land_marks):
 # Does UDP send
 def udp_send(ex_name):
 
-    UDP_IP = "10.33.138.34"
+    UDP_IP = "127.0.0.1"
     UDP_PORT = 5005
     MESSAGE = (ex_name).encode()
     print("UDP target IP: %s" % UDP_IP)

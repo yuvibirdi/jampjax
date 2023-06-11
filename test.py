@@ -1,5 +1,5 @@
 import socket
-UDP_IP = "10.33.138.34"
+UDP_IP = "127.0.0.1"
 UDP_PORT = 5005
 
 shit = "Jumping Jack"
