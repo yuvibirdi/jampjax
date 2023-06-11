@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqd0kgqfpvovi"
-path="res://.godot/imported/Energizer.jpeg-15b5ae089726dde0f14b1a4c3904d74b.ctex"
+uid="uid://dcxlvgtlnl7df"
+path="res://.godot/imported/Energizer.png-f9226ce4557f828b25de1f0f86e451c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/upgrades/Energizer.jpeg"
-dest_files=["res://.godot/imported/Energizer.jpeg-15b5ae089726dde0f14b1a4c3904d74b.ctex"]
+source_file="res://assets/upgrades/Energizer.png"
+dest_files=["res://.godot/imported/Energizer.png-f9226ce4557f828b25de1f0f86e451c8.ctex"]
 
 [params]
 

@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 	if (_energy > 0 && timer >= 1):
 		_energy -= 1
 		_jacks += _owned_upgrades[_upgrades[2]] # Trainee: 1/s
+		_jacks += _owned_upgrades[_upgrades[3]] # Super: 10/s
 		timer -= 1
 		_jack_count_label.text = str(_jacks) + " Jacks"
 	_energy_bar.value = clamp(_energy, 0, 100)

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dss3t2l4cx84y"]
+
+[ext_resource type="Texture2D" uid="uid://dcxlvgtlnl7df" path="res://assets/upgrades/Energizer.png" id="1_ifwjl"]
+
+[sub_resource type="Animation" id="Animation_mcju1"]
+resource_name = "float"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_62pyh"]
+_data = {
+"float": SubResource("Animation_mcju1")
+}
+
+[sub_resource type="GDScript" id="GDScript_t68ts"]
+resource_name = "PlayFade"
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	play(\"float\")
+"
+
+[node name="EnergyIncrease" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ifwjl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_62pyh")
+}
+script = SubResource("GDScript_t68ts")
