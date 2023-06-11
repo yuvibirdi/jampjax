@@ -28,7 +28,7 @@ func _ready():
 		get_node("HSplitContainer/Store/Store/ScrollContainer/VBoxContainer").add_child(item)
 		_owned_upgrades[upgrade] = 0
 		
-	_udp.bind(5005, "0.0.0.0")
+	_udp.bind(5005, "127.0.0.1")
 	var udp_thread = Thread.new()
 	udp_thread.start(udp_reciever)
 	
