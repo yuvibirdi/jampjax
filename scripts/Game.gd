@@ -43,9 +43,6 @@ func _process(delta: float) -> void:
 	_energy = clamp(_energy, 0, 100)
 	_energy_bar.value = _energy
 	timer += delta
-	
-	if (Input.is_action_just_pressed("alt_click")):
-		energize()
 
 func click():
 	_jacks += 1 + _owned_upgrades[_upgrades[0]]
