@@ -3,7 +3,7 @@
 [ext_resource type="LabelSettings" uid="uid://ryu204xb7w0a" path="res://resources/BigText.tres" id="1_awabc"]
 [ext_resource type="Script" path="res://scripts/StoreItem.gd" id="1_ieedq"]
 [ext_resource type="Texture2D" uid="uid://bs2ykvo7rr8cf" path="res://assets/upgrade-bgs.jpeg" id="1_ovjyo"]
-[ext_resource type="Texture2D" uid="uid://b2idm30wrxhf3" path="res://assets/upgrade-bgs-ddark.jpeg" id="2_kribj"]
+[ext_resource type="Texture2D" uid="uid://dl8amuebd1u4v" path="res://assets/upgrade-bgs-dark.jpeg" id="2_g5yje"]
 [ext_resource type="Texture2D" uid="uid://4dqupe1gf8bg" path="res://assets/upgrade-bgs-light.jpeg" id="3_33nao"]
 [ext_resource type="Texture2D" uid="uid://bwrd3vwbe2ks" path="res://assets/face.png" id="3_tfnqx"]
 
@@ -20,9 +20,9 @@ offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("1_ovjyo")
-texture_pressed = ExtResource("2_kribj")
+texture_pressed = ExtResource("2_g5yje")
 texture_hover = ExtResource("3_33nao")
-texture_disabled = ExtResource("2_kribj")
+texture_disabled = ExtResource("2_g5yje")
 script = ExtResource("1_ieedq")
 
 [node name="Icon" type="TextureRect" parent="."]

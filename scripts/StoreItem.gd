@@ -16,7 +16,7 @@ func setup(upgrade: Upgrade):
 func _ready():
 	get_node("Container/Name").text = upgrade.get_item_name()
 	_price_label.text = str(upgrade.get_price())
-	get_node("Icon").texture = load("res://assets/upgrades/" + upgrade.get_item_name() + ".jpeg")
+	get_node("Icon").texture = load("res://assets/upgrades/" + upgrade.get_item_name() + ".png")
 	update_owned(0)
 
 func _process(delta):
