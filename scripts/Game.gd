@@ -74,3 +74,5 @@ func udp_reciever():
 				click()
 			"Squat":
 				energize()
+			"High Knee":
+				energize()
