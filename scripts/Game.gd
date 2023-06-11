@@ -40,11 +40,10 @@ func _process(delta: float) -> void:
 		_jacks += _owned_upgrades[_upgrades[3]] # Super: 10/s
 		timer -= 1
 		_jack_count_label.text = str(_jacks) + " Jacks"
-	_energy_bar.value = clamp(_energy, 0, 100)
+	_energy = clamp(_energy, 0, 100)
+	_energy_bar.value = _energy
 	timer += delta
-		
-	if (Input.is_action_just_pressed("click")):
-		click()
+	
 	if (Input.is_action_just_pressed("alt_click")):
 		energize()
 
@@ -54,7 +53,7 @@ func click():
 	_jack_count_label.text = str(_jacks) + " Jacks"
 	
 func energize():
-	_energy += 1 + _owned_upgrades[_upgrades[1]]
+	_energy += 3 + _owned_upgrades[_upgrades[1]]
 
 func get_jacks():
 	return _jacks
